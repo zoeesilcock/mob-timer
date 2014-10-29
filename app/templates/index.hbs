@@ -1,5 +1,9 @@
-<div>{{timer}}</div>
-<button type="button" {{action 'start'}}>Start</button>
-<button type="button" {{action 'stop'}}>Stop</button>
+{{#if running}}
+  <div>{{timer}}</div>
+  <button type="button" {{action 'stop'}}>Stop</button>
+{{else}}
+  {{input type="text" value=minutes placeholder="Minutes"}}
+  <button type="button" {{action 'start'}}>Start</button>
+{{/if}}
 
 {{outlet}}

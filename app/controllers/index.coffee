@@ -3,12 +3,17 @@
 IndexController = Ember.Controller.extend
   actions:
     start: ->
-      @end = moment().add(15, 'minutes')
+      @set 'running', true
+      @end = moment().add(@get('minutes'), 'minutes')
       @tick()
       false
     stop: ->
+      @set 'running', false
       clearTimeout(@timeout)
       false
+
+  minutes: 15
+  running: false
 
   timer: ( ->
     if @end
