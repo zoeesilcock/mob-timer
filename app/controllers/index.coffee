@@ -2,6 +2,10 @@
 
 IndexController = Ember.Controller.extend
   actions:
+    add: ->
+      @store.createRecord 'person',
+        name: @get 'name'
+        @set 'name', ''
     start: ->
       @set 'running', true
       @end = moment().add(@get('minutes'), 'minutes')
