@@ -6,6 +6,8 @@
 {{/each}}
 </ul>
 
+<button type="button" {{action "shuffle"}}>Shuffle</button>
+
 <form {{action "addPerson" on="submit"}}>
   {{input type="text" value=name placeholder="Name"}}
   {{input type="submit" value="Add"}}
