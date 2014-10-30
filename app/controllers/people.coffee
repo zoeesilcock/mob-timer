@@ -9,7 +9,12 @@ PeopleController = Ember.ArrayController.extend
     shuffle: ->
       @set 'sortProperties', ['name']
       false
+    start: ->
+      @get('firstObject').set('currentDriver', true)
+    nextDriver: ->
+      console.log 'next driver'
 
+  itemController: 'person'
   sortProperties: ['name']
   sortFunction: (a, b) ->
     0.5 - Math.random()

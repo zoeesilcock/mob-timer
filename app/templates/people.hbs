@@ -2,7 +2,7 @@
 
 <ul>
 {{#each}}
-  <li>{{name}}</li>
+  <li>{{#if currentDriver}}* {{/if}}{{name}}</li>
 {{/each}}
 </ul>
 
