@@ -6,15 +6,13 @@ IndexController = Ember.Controller.extend
   actions:
     start: ->
       @set 'running', true
-      @get('controllers.people').send('start')
+      @get('controllers.people').send('nextDriver')
 
       @end = moment().add(@get('minutes'), 'minutes')
       @tick()
       false
-    nextDriver: ->
+    timerEnd: ->
       @set 'running', false
-      @get('controllers.people').send('nextDriver')
-
       clearTimeout(@timeout)
     stop: ->
       @set 'running', false
@@ -36,7 +34,7 @@ IndexController = Ember.Controller.extend
     @notifyPropertyChange 'timeUpdated'
 
     if @msLeft() <= 0
-      @send('nextDriver')
+      @send('timerEnd')
     else
       @timeout = setTimeout ( =>
         @tick()

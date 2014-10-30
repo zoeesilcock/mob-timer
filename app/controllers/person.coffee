@@ -1,6 +1,5 @@
 `import Ember from 'ember'`
 
-PersonController = Ember.ObjectController.extend
-  currentDriver: false
+PersonController = Ember.ObjectController.extend()
 
 `export default PersonController`

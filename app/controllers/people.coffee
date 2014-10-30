@@ -9,10 +9,21 @@ PeopleController = Ember.ArrayController.extend
     shuffle: ->
       @set 'sortProperties', ['name']
       false
-    start: ->
-      @get('firstObject').set('currentDriver', true)
     nextDriver: ->
-      console.log 'next driver'
+      nextIsDriver = false
+      driverSet = false
+
+      @get('arrangedContent').forEach (item) ->
+        if item.get('currentDriver')
+          item.set('currentDriver', false)
+          nextIsDriver = true
+        else if nextIsDriver
+          item.set('currentDriver', true)
+          nextIsDriver = false
+          driverSet = true
+
+      unless driverSet
+        @get('firstObject').set('currentDriver', true)
 
   itemController: 'person'
   sortProperties: ['name']

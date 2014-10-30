@@ -2,6 +2,7 @@
 
 Person = DS.Model.extend {
   name: DS.attr('string')
+  currentDriver: DS.attr('boolean', default: false)
 }
 
 Person.reopenClass({ FIXTURES: [] })
