@@ -1,18 +1,9 @@
 {{#if running}}
   <div>{{timer}}</div>
-  <button type="button" {{action 'stop'}}>Stop</button>
+  <button type="button" {{action "stop"}}>Stop</button>
 {{else}}
   {{input type="text" value=minutes placeholder="Minutes"}}
-  <button type="button" {{action 'start'}}>Start</button>
+  <button type="button" {{action "start"}}>Start</button>
 {{/if}}
 
-<h2>People</h2>
-<ul>
-{{#each model}}
-  <li>{{name}}</li>
-{{/each}}
-</ul>
-{{input type="text" value=name placeholder="Name"}}
-<button type="button" {{action "add"}}>Add</button>
-
-{{outlet}}
+{{outlet "people"}}

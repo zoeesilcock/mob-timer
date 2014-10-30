@@ -1,0 +1,12 @@
+<h2>People</h2>
+
+<ul>
+{{#each}}
+  <li>{{name}}</li>
+{{/each}}
+</ul>
+
+<form {{action "addPerson" on="submit"}}>
+  {{input type="text" value=name placeholder="Name"}}
+  {{input type="submit" value="Add"}}
+</form>
