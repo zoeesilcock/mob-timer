@@ -5,6 +5,7 @@ body {
 
 h1, h2 {
   font-weight: normal;
+  margin: 20px 0;
 }
 
 form {
@@ -35,7 +36,15 @@ ul.people {
     background: #f9f9f9;
 
     &.driver {
-      background: #eee;
+      background: #e6e6e6;
+    }
+
+    &:first-of-type {
+      border-radius: 2px 2px 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 0 2px 2px;
     }
   }
 }
