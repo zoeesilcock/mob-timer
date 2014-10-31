@@ -1,8 +1,8 @@
-<h2>People</h2>
+<h2>people</h2>
 
-<ul>
+<ul class="people">
 {{#each}}
-  <li>{{#if isDriver}}* {{/if}}{{name}}</li>
+  <li {{bindAttr class="isDriver:driver"}}>{{name}}</li>
 {{/each}}
 </ul>
 
