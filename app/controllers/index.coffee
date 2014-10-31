@@ -22,8 +22,10 @@ IndexController = Ember.Controller.extend
   running: false
 
   msLeft: ->
-    if @end
+    if @get('running')
       @end.diff(moment(), 'milliseconds')
+    else
+      0
 
   timer: ( ->
     moment(@msLeft()).format('mm:ss')
