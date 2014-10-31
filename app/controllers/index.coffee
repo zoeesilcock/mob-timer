@@ -48,4 +48,14 @@ IndexController = Ember.Controller.extend
     notification.load()
     notification.play()
 
+    $('.overlay').css(height: '100%')
+    $('.overlay')
+      .animate(opacity: 0.5, 400)
+      .animate(opacity: 0, 200)
+      .delay(200)
+      .animate(opacity: 0.5, 400)
+      .animate(opacity: 0, 200, ->
+        $('.overlay').css(height: '0')
+      )
+
 `export default IndexController`

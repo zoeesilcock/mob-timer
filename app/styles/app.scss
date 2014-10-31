@@ -20,6 +20,16 @@ input {
   margin: 0 auto;
 }
 
+.overlay {
+  z-index: 9001;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0;
+}
+
 .timer {
   font-size: 72px;
   text-align: center;
