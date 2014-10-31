@@ -4,7 +4,7 @@ PeopleController = Ember.ArrayController.extend
   currentDriverIndex: 0
   currentDriver: (->
     @get('arrangedContent').objectAt(@get('currentDriverIndex'))
-  ).property('currentDriverIndex')
+  ).property('currentDriverIndex', 'arrangedContent')
 
   actions:
     addPerson: ->
@@ -13,6 +13,7 @@ PeopleController = Ember.ArrayController.extend
       @set 'name', ''
     shuffle: ->
       @set 'sortProperties', ['name']
+      @set 'currentDriverIndex', 0
       false
     switchDriver: ->
       @incrementProperty('currentDriverIndex')
