@@ -5,13 +5,12 @@ IndexController = Ember.Controller.extend
 
   actions:
     start: ->
-      @set 'running', true
-      @get('controllers.people').send('nextDriver')
-
       @end = moment().add(@get('minutes'), 'minutes')
+      @set 'running', true
       @tick()
       false
     timerEnd: ->
+      @get('controllers.people').send('switchDriver')
       @set 'running', false
       clearTimeout(@timeout)
     stop: ->

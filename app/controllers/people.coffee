@@ -1,6 +1,11 @@
 `import Ember from 'ember'`
 
 PeopleController = Ember.ArrayController.extend
+  currentDriverIndex: 0
+  currentDriver: (->
+    @get('arrangedContent').objectAt(@get('currentDriverIndex'))
+  ).property('currentDriverIndex')
+
   actions:
     addPerson: ->
       @store.createRecord 'person',
@@ -9,21 +14,9 @@ PeopleController = Ember.ArrayController.extend
     shuffle: ->
       @set 'sortProperties', ['name']
       false
-    nextDriver: ->
-      nextIsDriver = false
-      driverSet = false
-
-      @get('arrangedContent').forEach (item) ->
-        if item.get('currentDriver')
-          item.set('currentDriver', false)
-          nextIsDriver = true
-        else if nextIsDriver
-          item.set('currentDriver', true)
-          nextIsDriver = false
-          driverSet = true
-
-      unless driverSet
-        @get('firstObject').set('currentDriver', true)
+    switchDriver: ->
+      @incrementProperty('currentDriverIndex')
+      @set('currentDriverIndex', 0) if @currentDriverIndex >= @get('arrangedContent.length')
 
   itemController: 'person'
   sortProperties: ['name']
