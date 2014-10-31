@@ -19,4 +19,7 @@ var app = new EmberApp();
 
 app.import('bower_components/moment/moment.js');
 
+app.import('bower_components/pure/pure.css')
+app.import('bower_components/pure/grids-responsive.css')
+
 module.exports = app.toTree();

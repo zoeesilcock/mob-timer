@@ -14,6 +14,7 @@ IndexController = Ember.Controller.extend
       @set 'running', false
       clearTimeout(@timeout)
     stop: ->
+      @get('controllers.people').send('switchDriver')
       @set 'running', false
       clearTimeout(@timeout)
       false
