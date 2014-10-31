@@ -10,6 +10,7 @@ IndexController = Ember.Controller.extend
       @tick()
       false
     timerEnd: ->
+      @playNotification()
       @get('controllers.people').send('switchDriver')
       @set 'running', false
       clearTimeout(@timeout)
@@ -41,5 +42,10 @@ IndexController = Ember.Controller.extend
       @timeout = setTimeout ( =>
         @tick()
       ), 1000
+
+  playNotification: ->
+    notification = $('.notification')[0]
+    notification.load()
+    notification.play()
 
 `export default IndexController`
