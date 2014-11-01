@@ -3,6 +3,8 @@
 A timer for keeping track of keyboard timing when mob programming. Add your
 participants to the list, pick a time interval and get to coding!
 
+http://mob-timer.herokuapp.com/
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
@@ -38,7 +40,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+Can be deployed to heroku using the [heroku-ember-cli-buildback](https://github.com/tonycoco/heroku-buildpack-ember-cli/).
 
 ## Further Reading / Useful Links
 
