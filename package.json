@@ -31,6 +31,7 @@
     "express": "^4.8.5",
     "glob": "^4.0.5",
     "ember-cli-coffeescript": "~0.2.0",
+    "node-sass": "1.0.3",
     "broccoli-sass": "~0.3.2"
   }
 }
