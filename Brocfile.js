@@ -18,6 +18,7 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/ember-localstorage-adapter/localstorage_adapter.js');
 
 app.import('bower_components/pure/pure.css')
 app.import('bower_components/pure/grids-responsive.css')
