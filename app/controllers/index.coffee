@@ -5,40 +5,50 @@ IndexController = Ember.Controller.extend
 
   actions:
     start: ->
-      @end = moment().add(@get('minutes'), 'minutes')
-      @set 'running', true
+      if @get('state') == 'idle'
+        @end = moment().add(@get('minutes'), 'minutes')
+      else
+        @end = moment().add(@get('ms'))
+      @set 'state', 'running'
       @tick()
+      false
+    pause: ->
+      @set 'state', 'paused'
+      @set 'ms', @msLeft()
       false
     timerEnd: ->
       @playNotification()
       @get('controllers.people').send('switchDriver')
-      @set 'running', false
-      clearTimeout(@timeout)
-    stop: ->
-      @get('controllers.people').send('switchDriver')
-      @set 'running', false
+      @set 'state', 'idle'
+      @set 'ms', 0
+      @end = null
+      @notifyPropertyChange 'timeUpdated'
       clearTimeout(@timeout)
       false
 
   minutes: 15
-  running: false
+  ms: 0
+  state: 'idle'
+  running: ( ->
+    @get('state') == 'running'
+  ).property('state')
 
   msLeft: ->
-    if @get('running')
+    if @end
       @end.diff(moment(), 'milliseconds')
     else
-      0
+      @get 'ms'
 
   timer: ( ->
     moment(@msLeft()).format('mm:ss')
   ).property('timeUpdated')
 
   tick: ->
-    @notifyPropertyChange 'timeUpdated'
+    @notifyPropertyChange 'timeUpdated' if @get('running')
 
     if @msLeft() <= 0
       @send('timerEnd')
-    else
+    else if @get('running')
       @timeout = setTimeout ( =>
         @tick()
       ), 1000

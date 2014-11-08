@@ -1,12 +1,12 @@
 <div class="timer">{{timer}}</div>
 
-  <form class="pure-form" {{action "start" on="submit"}}>
-    {{input type="text" value=minutes placeholder="Minutes" class="pure-input-1-4"}}
-    {{#if running}}
-      <button type="button" class="pure-button" {{action "stop"}}>Stop</button>
-    {{else}}
-      {{input type="submit" value="Start" class="pure-button"}}
-    {{/if}}
-  </form>
+<form class="pure-form" {{action "start" on="submit"}}>
+  {{input type="text" value=minutes placeholder="Minutes" class="pure-input-1-4"}}
+  {{#if running}}
+    <button type="button" class="pure-button" {{action "pause"}}>Pause</button>
+  {{else}}
+    {{input type="submit" value="Start" class="pure-button"}}
+  {{/if}}
+</form>
 
 {{outlet "people"}}
