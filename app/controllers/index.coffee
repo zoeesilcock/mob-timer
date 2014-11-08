@@ -10,28 +10,37 @@ IndexController = Ember.Controller.extend
       else
         @end = moment().add(@get('ms'))
       @set 'state', 'running'
+      @set 'message', "Time to write some code #{@get('driver.name')}! Try not to think too much."
       @tick()
       false
     pause: ->
       @set 'state', 'paused'
       @set 'ms', @msLeft()
+      @set 'message', 'You deserve a break!'
       false
     reset: ->
       @set 'state', 'idle'
       @set 'ms', 0
       @end = null
+      @set 'message', 'Get ready for some mob programming.'
       @notifyPropertyChange 'timeUpdated'
       false
     timerEnd: ->
       @playNotification()
       @get('controllers.people').send('switchDriver')
       @send 'reset'
+      @set 'message', "Grab the keyboard #{@get('driver.name')}. Don't forget to change the keyboard language."
       clearTimeout(@timeout)
       false
 
+  message: 'Get ready for some mob programming.'
   minutes: 15
   ms: 0
   state: 'idle'
+
+  driver: ( ->
+    @get('controllers.people.currentDriver')
+  ).property('controllers.people.currentDriver')
 
   running: ( ->
     @get('state') == 'running'

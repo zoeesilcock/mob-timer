@@ -1,7 +1,8 @@
+<div class="message">{{message}}</div>
 <div class="timer">{{timer}}</div>
 
 <form class="pure-form" {{action "start" on="submit"}}>
-  {{input type="text" value=minutes placeholder="Minutes" class="pure-input-1-4"}}
+  {{input type="number" value=minutes placeholder="Minutes" class="pure-input-1-4"}}
   {{#if running}}
     <button type="button" class="pure-button" {{action "pause"}}>Pause</button>
   {{else}}
