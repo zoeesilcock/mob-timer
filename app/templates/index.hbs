@@ -6,6 +6,10 @@
     <button type="button" class="pure-button" {{action "pause"}}>Pause</button>
   {{else}}
     {{input type="submit" value="Start" class="pure-button"}}
+
+    {{#if paused}}
+      <button type="button" class="pure-button" {{action "reset"}}>Reset</button>
+    {{/if}}
   {{/if}}
 </form>
 

@@ -16,21 +16,29 @@ IndexController = Ember.Controller.extend
       @set 'state', 'paused'
       @set 'ms', @msLeft()
       false
-    timerEnd: ->
-      @playNotification()
-      @get('controllers.people').send('switchDriver')
+    reset: ->
       @set 'state', 'idle'
       @set 'ms', 0
       @end = null
       @notifyPropertyChange 'timeUpdated'
+      false
+    timerEnd: ->
+      @playNotification()
+      @get('controllers.people').send('switchDriver')
+      @send 'reset'
       clearTimeout(@timeout)
       false
 
   minutes: 15
   ms: 0
   state: 'idle'
+
   running: ( ->
     @get('state') == 'running'
+  ).property('state')
+
+  paused: ( ->
+    @get('state') == 'paused'
   ).property('state')
 
   msLeft: ->
