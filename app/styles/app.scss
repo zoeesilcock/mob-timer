@@ -14,6 +14,13 @@ h1, h2 {
   margin: 20px 0;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 form {
   margin: 20px 0;
 }
@@ -50,6 +57,7 @@ ul.people {
   li {
     padding: 5px;
     background: #f9f9f9;
+    position: relative;
 
     &.driver {
       background: #e6e6e6;
@@ -61,6 +69,13 @@ ul.people {
 
     &:last-of-type {
       border-radius: 0 0 2px 2px;
+    }
+
+    .remove {
+      position: absolute;
+      left: 10px;
+      font-weight: bold;
+      color: #000;
     }
   }
 }

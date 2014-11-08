@@ -2,7 +2,10 @@
 
 <ul class="people">
 {{#each}}
-  <li {{bindAttr class="isDriver:driver"}}>{{name}}</li>
+  <li {{bind-attr class="isDriver:driver"}}>
+    <a href="#" class="remove" {{action "remove"}}>&times;</a>
+    {{name}}
+  </li>
 {{/each}}
 </ul>
 
