@@ -10,8 +10,9 @@ PeopleController = Ember.ArrayController.extend
 
   actions:
     addPerson: ->
-      @store.createRecord 'person',
+      @store.createRecord('person',
         name: @get 'name'
+      ).save()
       @set 'name', ''
     shuffle: ->
       @set 'sortProperties', ['name']
