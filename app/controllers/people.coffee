@@ -1,6 +1,8 @@
 `import Ember from 'ember'`
 
 PeopleController = Ember.ArrayController.extend
+  needs: ['index']
+
   currentDriverIndex: 0
   currentDriver: (->
     @get('arrangedContent').objectAt(@get('currentDriverIndex'))
