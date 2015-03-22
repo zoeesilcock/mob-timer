@@ -1,10 +1,10 @@
 <h2>people</h2>
 
 <ul class="people">
-{{#each}}
-  <li {{bind-attr class="isDriver:driver"}}>
+{{#each person in controller}}
+  <li {{bind-attr class="person.isDriver:driver"}}>
     <a href="#" class="remove" {{action "remove"}}>&times;</a>
-    {{name}}
+    {{person.name}}
   </li>
 {{/each}}
 </ul>
