@@ -3,7 +3,7 @@
 PersonController = Ember.ObjectController.extend
   actions:
     remove: ->
-      @model.deleteRecord()
+      @model.destroyRecord()
   isDriver: (->
     @get('parentController.currentDriver') == @model
   ).property('parentController.currentDriver')
