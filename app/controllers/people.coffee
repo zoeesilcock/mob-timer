@@ -7,6 +7,9 @@ PeopleController = Ember.ArrayController.extend
   currentDriver: (->
     @get('arrangedContent').objectAt(@get('currentDriverIndex'))
   ).property('currentDriverIndex', 'arrangedContent.@each')
+  hasPeople: (->
+    @get('content.length') > 1
+  ).property('content.length')
 
   actions:
     addPerson: ->

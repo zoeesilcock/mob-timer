@@ -9,7 +9,9 @@
 {{/each}}
 </ul>
 
-<button type="button" class="pure-button button-small" {{action "shuffle"}} {{bind-attr disabled="controllers.index.running"}}>Shuffle</button>
+{{#if hasPeople}}
+  <button type="button" class="pure-button button-small" {{action "shuffle"}} {{bind-attr disabled="controllers.index.running"}}>Shuffle</button>
+{{/if}}
 
 <form class="pure-form" {{action "addPerson" on="submit"}}>
   <div class="pure-g">

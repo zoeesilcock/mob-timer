@@ -33,7 +33,7 @@ IndexController = Ember.Controller.extend
   ms: 0
   state: 'idle'
 
-  message: ( ->
+  message: (->
     switch @get('state')
       when 'idle'
         if @get('driver')
@@ -46,15 +46,15 @@ IndexController = Ember.Controller.extend
         "Time to write some code #{@get('driver.name')}! Try not to think too much."
   ).property('state', 'driver')
 
-  driver: ( ->
+  driver: (->
     @get('controllers.people.currentDriver')
   ).property('controllers.people.currentDriver')
 
-  running: ( ->
+  running: (->
     @get('state') == 'running'
   ).property('state')
 
-  paused: ( ->
+  paused: (->
     @get('state') == 'paused'
   ).property('state')
 
@@ -64,7 +64,7 @@ IndexController = Ember.Controller.extend
     else
       @get 'ms'
 
-  timer: ( ->
+  timer: (->
     moment(@msLeft()).format('mm:ss')
   ).property('timeUpdated')
 
