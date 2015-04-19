@@ -1,9 +1,9 @@
-# Mob-timer
+# Mob Timer
 
 A timer for keeping track of keyboard timing when mob programming. Add your
 participants to the list, pick a time interval and get to coding!
 
-http://mob-timer.herokuapp.com/
+http://mobtimer.zoeetrope.com/
 
 ## Prerequisites
 
