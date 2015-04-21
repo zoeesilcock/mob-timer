@@ -6,7 +6,7 @@ IndexController = Ember.Controller.extend
   actions:
     start: ->
       if @get('state') == 'idle'
-        @end = moment().add(@get('minutes'), 'minutes')
+        @end = moment().add(@model.get('minutes'), 'minutes')
       else
         @end = moment().add(@get('ms'))
       @set 'state', 'running'
@@ -29,7 +29,6 @@ IndexController = Ember.Controller.extend
       clearTimeout(@timeout)
       false
 
-  minutes: 15
   ms: 0
   state: 'idle'
 
