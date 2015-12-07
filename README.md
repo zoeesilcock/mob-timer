@@ -3,8 +3,6 @@
 A timer for keeping track of keyboard timing when mob programming. Add your
 participants to the list, pick a time interval and get to coding!
 
-http://mobtimer.zoeetrope.com/
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
